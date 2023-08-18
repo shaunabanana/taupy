@@ -111,12 +111,13 @@ class Argument(Implies, Base):
 
     def __init__(self, *args):
         # Check for bad premise input
-        if not self.args[0].is_Boolean:
-            raise ValueError("Argument requires Boolean input for premises." 
-                             + " Normally, this will be either a single premise"
-                             + " or a conjunction of premises marked with"
-                             + " sympy's And() or the & operator."
-                             + " Tuples, lists, etc. do not currently work.")
+        # [Todo) Substitute with a proper check, as a single symbol does not have is_Boolean be True, but should still be admitted.
+        # if not self.args[0].is_Boolean:
+        #     raise ValueError("Argument requires Boolean input for premises." 
+        #                      + " Normally, this will be either a single premise"
+        #                      + " or a conjunction of premises marked with"
+        #                      + " sympy's And() or the & operator."
+        #                      + " Tuples, lists, etc. do not currently work.")
 
         self.premises = list(self.args[0].args)
         self.conclusion = self.args[1]
